@@ -1,3 +1,5 @@
-# credit_card_default_prediction
+# Credit Card Default Prediction
 ML classification model to predict credit card default with a month of advance.
-under development
+
+
+***under development***
