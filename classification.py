@@ -1,5 +1,5 @@
 """
-Calculate metrics and shows relevant charts for classification models
+Calculates metrics and shows relevant charts for classification models
 @author: Felipe S. Mezzarana
 """
  
@@ -102,7 +102,8 @@ class Metrics:
         
 """
 To prevent overfitting, we will use Stratified K-Folds cross-validator to evaluate our models. 
-Therefore, it will be interesting to have a function that receive multiple metrics objects (one for each fold) and generate overlapped charts, mean metrics, and other useful infos. 
+Therefore, it will be interesting to have a function that receive multiple metrics objects (one for each fold),
+generating overlapped charts, mean metrics, and other useful infos. 
 """
 
 def show_mean_metrics(metrics_obj_list):
