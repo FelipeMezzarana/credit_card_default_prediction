@@ -192,8 +192,8 @@ def show_mean_metrics(metrics_obj_list):
     plt.show()
     
     # Print mean metrics
-    print(f'Métrics:\n\nMean Recall = {round(np.mean(recall_list),2)} | Recall Std = {round(np.std(recall_list),3)}'
-          f'\nMean Precision = {round(np.mean(precision_list),2)} | Precision Std = {round(np.std(precision_list),3)}'
-          f'\nMean F1 = {round(np.mean(f1_list),2)} | F1 Std = {round(np.std(f1_list),3)}'
-          f'\nMean AUC = {round(np.mean(auc_list),2)} | AUC Std = {round(np.std(auc_list),3)}')
+    print(f'Métrics:\n\nMean Recall = {round(np.mean(recall_list),3)} | Recall Std = {round(np.std(recall_list),2)}'
+          f'\nMean Precision = {round(np.mean(precision_list),3)} | Precision Std = {round(np.std(precision_list),2)}'
+          f'\nMean F1 = {round(np.mean(f1_list),3)} | F1 Std = {round(np.std(f1_list),2)}'
+          f'\nMean AUC = {round(np.mean(auc_list),3)} | AUC Std = {round(np.std(auc_list),2)}')
     
