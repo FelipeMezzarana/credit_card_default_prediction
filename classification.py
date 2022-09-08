@@ -44,8 +44,8 @@ class Metrics:
         
         print(f'Métrics:\n\nRecall: {round(self.recall,3)}'
               f'\nPrecision: {round(self.precision,3)}'
-              f'\nF1: {round(self.f1,2)}'
-              f'\nAUC: {round(self.auc,2)}')
+              f'\nF1: {round(self.f1,3)}'
+              f'\nAUC: {round(self.auc,3)}')
         
     def show_charts(self, chart = 'all'):
         
@@ -192,8 +192,8 @@ def show_mean_metrics(metrics_obj_list):
     plt.show()
     
     # Print mean metrics
-    print(f'Métrics:\n\nMean Recall = {round(np.mean(recall_list),2)} | Recall Std = {round(np.std(recall_list),2)}'
-          f'\nMean Precision = {round(np.mean(precision_list),2)} | Precision Std = {round(np.std(precision_list),2)}'
-          f'\nMean F1 = {round(np.mean(f1_list),2)} | F1 Std = {round(np.std(f1_list),2)}'
-          f'\nMean AUC = {round(np.mean(auc_list),2)} | AUC Std = {round(np.std(auc_list),2)}')
+    print(f'Métrics:\n\nMean Recall = {round(np.mean(recall_list),2)} | Recall Std = {round(np.std(recall_list),3)}'
+          f'\nMean Precision = {round(np.mean(precision_list),2)} | Precision Std = {round(np.std(precision_list),3)}'
+          f'\nMean F1 = {round(np.mean(f1_list),2)} | F1 Std = {round(np.std(f1_list),3)}'
+          f'\nMean AUC = {round(np.mean(auc_list),2)} | AUC Std = {round(np.std(auc_list),3)}')
     
