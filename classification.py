@@ -106,7 +106,7 @@ Therefore, it will be interesting to have a function that receive multiple metri
 generating overlapped charts, mean metrics, and other useful infos. 
 """
 
-def show_mean_metrics(metrics_obj_list):
+def show_mean_metrics(metrics_obj_list, charts = 1):
 
     """Show mean metrics for multiple tests (K-Folds)
     for n folds:
@@ -116,7 +116,26 @@ def show_mean_metrics(metrics_obj_list):
 
     Keyword arguments:
     metrics_obj_list -- list of object from metrics class
+    charts -- define whether the charts will be displayed (default = 1)
     """
+    
+    if charts != 1: # dont display charts
+        
+        # Lists to append individual metrics of each fold
+        recall_list,precision_list,f1_list,auc_list = [[]for i in range(4)]
+        for metrics_obj, i in zip(metrics_obj_list,range(len(metrics_obj_list))):
+            # Appending metrics values
+            recall_list.append(metrics_obj.recall)
+            precision_list.append(metrics_obj.precision)
+            f1_list.append(metrics_obj.f1)
+            auc_list.append(metrics_obj.auc)
+            
+        metrics_txt = (f'Métrics:\n\nMean Recall = {round(np.mean(recall_list),3)} | Recall Std = {round(np.std(recall_list),2)}'
+                       f'\nMean Precision = {round(np.mean(precision_list),3)} | Precision Std = {round(np.std(precision_list),2)}'
+                       f'\nMean F1 = {round(np.mean(f1_list),3)} | F1 Std = {round(np.std(f1_list),2)}'
+                       f'\nMean AUC = {round(np.mean(auc_list),3)} | AUC Std = {round(np.std(auc_list),2)}')
+    
+        return print(metrics_txt)
     
     # Empty arrays to sum Confusion Matrix values from all folds
     conf_matrix_s1 = np.array([0,0])
