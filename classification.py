@@ -4,6 +4,7 @@ Calculates metrics and shows relevant charts for classification models
 """
  
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import recall_score
@@ -215,4 +216,30 @@ def show_mean_metrics(metrics_obj_list, charts = 1):
           f'\nMean Precision = {round(np.mean(precision_list),3)} | Precision Std = {round(np.std(precision_list),2)}'
           f'\nMean F1 = {round(np.mean(f1_list),3)} | F1 Std = {round(np.std(f1_list),2)}'
           f'\nMean AUC = {round(np.mean(auc_list),3)} | AUC Std = {round(np.std(auc_list),2)}')
+    
+    
+    
+def mean_metrics(metrics_obj_list):
+
+    """Return a DataFrame with mean metrics for multiple tests (K-Folds)
+
+    Keyword arguments:
+    metrics_obj_list -- list of object from metrics class
+    """
+    # Lists to append individual metrics of each fold
+    recall_list,precision_list,f1_list,auc_list = [[]for i in range(4)]
+    for metrics_obj, i in zip(metrics_obj_list,range(len(metrics_obj_list))):
+        # Appending metrics values
+        recall_list.append(metrics_obj.recall)
+        precision_list.append(metrics_obj.precision)
+        f1_list.append(metrics_obj.f1)
+        auc_list.append(metrics_obj.auc)
+
+    metrics_df = pd.DataFrame({'Mean Recall':[round(np.mean(recall_list),3)],
+                               'Mean Precision':[round(np.mean(precision_list),3)],
+                               'Mean F1':[round(np.mean(f1_list),3)],
+                               'Mean AUC':[round(np.mean(auc_list),3)]
+                              })
+
+    return metrics_df
     
