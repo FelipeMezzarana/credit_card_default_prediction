@@ -17,7 +17,6 @@ from sklearn.metrics import roc_auc_score
 class Metrics:
     
     def __init__(self, y_true,y_pred):
-        
         """Create the Metrics object and define the desired metrics as attributes.
 
         Keyword arguments:
@@ -40,7 +39,6 @@ class Metrics:
         self.conf_matrix = confusion_matrix(self.y_true, self.y_pred)
         
     def show_metrics(self):
-        
         """Print metrics"""
         
         print(f'Métrics:\n\nRecall: {round(self.recall,3)}'
@@ -49,7 +47,6 @@ class Metrics:
               f'\nAUC: {round(self.auc,3)}')
         
     def show_charts(self, chart = 'all'):
-        
         """plot metrics charts
         Charts may be: Confusion Matrix, ROC Curve or both
         
@@ -88,7 +85,6 @@ class Metrics:
    
     
     def show_all(self):
-        
         """Plot metrics chart and print metrics values.
         *Confusion Matrix
         *ROC Curve
@@ -100,20 +96,16 @@ class Metrics:
         self.show_charts()
         self.show_metrics()
         
-        
-"""
-To prevent overfitting, we will use Stratified K-Folds cross-validator to evaluate our models. 
-Therefore, it will be interesting to have a function that receive multiple metrics objects (one for each fold),
-generating overlapped charts, mean metrics, and other useful infos. 
-"""
 
 def show_mean_metrics(metrics_obj_list, charts = 1):
-
     """Show mean metrics for multiple tests (K-Folds)
+    To prevent overfitting, we will use Stratified K-Folds cross-validator to evaluate our models. 
+    Therefore, it will be interesting to have a function that receive multiple metrics objects (one for each fold),
+    generating overlapped charts, mean metrics, and other useful infos. 
     for n folds:
-    Plot overlapped ROC Curve
-    Plot sum of Confusions Matrix
-    print defined metrics (mean) and respective standard deviations
+    *Plot overlapped ROC Curve
+    *Plot sum of Confusions Matrix
+    *print defined metrics (mean) and respective standard deviations
 
     Keyword arguments:
     metrics_obj_list -- list of object from metrics class
@@ -220,7 +212,6 @@ def show_mean_metrics(metrics_obj_list, charts = 1):
     
     
 def mean_metrics(metrics_obj_list):
-
     """Return a DataFrame with mean metrics for multiple tests (K-Folds)
 
     Keyword arguments:
