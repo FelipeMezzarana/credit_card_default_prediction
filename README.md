@@ -26,7 +26,7 @@ This project also aims to practice a series of techniques in relation to the dev
 
 # Project Structure
 
-To make the project easier to read and understand, we decided to divide it into three main files.
+To make the project easier to read and understand, I decided to divide it into three main files.
 
 **Python notebook - eda_and_feature_engineering:**
 
@@ -48,7 +48,7 @@ To make the project easier to read and understand, we decided to divide it into 
 
 **classification.py**
 
-Using metrics for a classification model is something recurrent in any problem of this type. So, to make our work more scalable and our notebooks easier to read, we created a class Metrics and some functions in the file classification.py, that shall be imported in the notebook "default_predict".
+Using metrics for a classification model is something recurrent in any problem of this type. So, to make our work more scalable and our notebooks easier to read, I created a class Metrics and some functions in the file classification.py, that shall be imported in the notebook "default_predict".
 
 The Metrics class receive two lists (list of predict default and list of actual default) and define the desired metrics as attributes. Methods:
 + ***show_metrics(self)*** -- Print metrics
